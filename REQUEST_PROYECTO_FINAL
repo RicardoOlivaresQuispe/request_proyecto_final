@@ -1,0 +1,37 @@
+ACTUALIZAR TASA DE COMPRA 
+
+curl --location --request PUT 'http://localhost:9092/operaciones-tasa-compra-venta-bitcoin/update' \
+--header 'Content-Type: application/json' \
+--data '{
+    "id": "63fe410c847349434eac54a0",
+    "tasaCompra": 2.5,
+    "tasaVenta": 2.5
+}'
+
+LISTAR TASA DE COPRA
+
+curl --location 'http://localhost:9092/operaciones-tasa-compra-venta-bitcoin'
+
+REGISTRAR COMPRA BITCOIN
+
+curl --location 'http://localhost:9092/operaciones-compra-bitcoin/save' \
+--header 'Content-Type: application/json' \
+--data '{
+    "usuarioCompra":"963852741",
+    "monto":"500",
+    "tipPago":"1"
+
+
+}'
+
+CONFIRMAR COMPRA BITCOIN
+
+curl --location --request PUT 'http://localhost:9092/operaciones-compra-bitcoin/confirmacion' \
+--header 'Content-Type: application/json' \
+--data '{
+    "id": "63fe5927847349434eac54a4",
+    "usuarioVenta": "78945612"
+}'
+
+LISTAR TRANSACCIONES
+curl --location 'http://localhost:9092/operaciones-transaccion'
